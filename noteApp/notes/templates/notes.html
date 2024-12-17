@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navbar{
+            display:flex;
+            padding-bottom: 10px;
+        }
+        .login{
+            padding-left: 800px;
+            
+        }
+        .items{
+            display: flex;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            
+            <div>
+                <span>Note App</span>
+            </div>
+
+            <div class="login">
+                <button>Login</button>
+                <button>Register</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="form">
+            
+        </div>
+
+        <div class="list_items">
+            <ul class="list-group">
+                <li class="list-group-items" style="list-style-type: none;">
+                    <form action="{% url 'insert_notes' %}" autocomplete="off" method="post">
+                        {% csrf_token %}
+                        <label for="title">Enter the title </label>
+                        <input type="text" id="title" placeholder="Enter title" name="title"/>
+                        <label for="task">Enter the task </label>
+                        <textarea cols="100" rows="8" name="content"></textarea>
+        
+                        <input type="submit"/>
+                    </form>
+                </li>
+                <div class="items"></div>
+                {% for note in note_list %}
+                
+                    <li class="list-group-items">{{note.content}}</li> 
+                {% endfor %}
+            </div>
+            </ul>
+        </div>
+    </main>
+</body>
+</html>
