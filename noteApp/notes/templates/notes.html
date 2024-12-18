@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>NoteApp</title>
     <style>
         .navbar{
             display:flex;
@@ -52,12 +52,12 @@
                         <input type="submit"/>
                     </form>
                 </li>
+
                 <div class="items"></div>
                 {% for note in note_list %}
-                
                     <li class="list-group-items">{{note.content}}</li> 
                 {% endfor %}
-            </div>
+                </div>
             </ul>
         </div>
     </main>

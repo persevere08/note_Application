@@ -4,11 +4,11 @@ from .models import Notes
 # Create your views here.
 
 def list_notes(request):
-    context ={'note_list' : Notes.objects.all()};
-    print(context)
-    return render(request,"notes.html",context);
+    context ={'note_list' : Notes.objects.all()}
+    #print(context['note_list'][0])
+    return render(request,"notes.html",context)
 
 def insert_notes(request:HttpRequest):
-    myNote = Notes(title = request.POST['title'], content = request.POST['content'])
-    myNote.save()
+    notes = Notes(title = request.POST['title'], content = request.POST['content'])
+    notes.save()
     return redirect('/')
