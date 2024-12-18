@@ -8,6 +8,7 @@ from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken
 # Create your views hefrre.
 
+
 class RegisterView(APIView):
     def post(self,request):
         data = request.data
