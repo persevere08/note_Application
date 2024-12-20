@@ -4,9 +4,12 @@ from .models import Notes
 # Create your views here.
 
 def list_notes(request):
-    context ={'note_list' : Notes.objects.all()}
-    #print(context['note_list'][0])
-    return render(request,"notes.html",context)
+    if request.user.is_authenticated:
+        user_id = request.user.id
+        notes = Notes.objects.filter(user_id=user_id)
+        context = {'note_list': notes}
+        return render(request, "notes.html", context)
+    return HttpResponse("login first")
 
 def insert_notes(request:HttpRequest):
     notes = Notes(title = request.POST['title'], content = request.POST['content'])
