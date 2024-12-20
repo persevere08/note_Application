@@ -21,7 +21,7 @@ from accounts.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('notes.urls')),
-    path('api/register/', RegisterView.as_view()),
+    path('api/register', RegisterView.as_view()),
     path('api/login/', LoginView.as_view())
  
 ]
