@@ -19,7 +19,8 @@ class UserViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
 
     def get_queryset(self):
-        return self.queryset 
+        return super().get_queryset()
+
 
 class RegisterView(APIView):
     def post(self, request):
